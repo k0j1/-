@@ -67,6 +67,36 @@ const InfoSection: React.FC = () => {
             </div>
           </div>
 
+          {/* Right Column: Parking Map Image & Details */}
+          <div className="space-y-6">
+             <div className="space-y-4">
+                <h3 className="font-bold text-white text-xl flex items-center gap-2 border-b border-white/20 pb-4">
+                    <Car className="text-kaine-gold" /> 駐車場のご案内
+                </h3>
+                
+                {/* Parking Image Container */}
+                <div className="bg-white p-2 rounded-sm shadow-xl overflow-hidden">
+                    <img 
+                      src={PARKING_IMAGE_URL}
+                      alt="Parking Map" 
+                      className="w-full h-auto object-contain"
+                    />
+                </div>
+
+                <div className="text-sm text-stone-400 space-y-2 bg-black/20 p-4 rounded-sm border border-white/5">
+                    <div className="flex items-baseline justify-between mb-2">
+                        <span className="font-bold text-white text-lg">全10台完備</span>
+                    </div>
+                    <ul className="list-disc list-inside space-y-2 pl-2">
+                        <li>店舗すぐそば: <span className="text-white font-bold">6台</span></li>
+                        <li>斜め向かい「tictac hair」様ビル裏: <span className="text-white font-bold">4台</span></li>
+                    </ul>
+                    <p className="text-xs text-red-300 mt-3 pt-3 border-t border-white/10 leading-relaxed">
+                        ※近隣の方へのご迷惑となりますので、指定場所以外への駐車（路上駐車等）は固くお断りいたします。
+                    </p>
+                </div>
+             </div>
+          </div>
         </div>
 
         {/* Google Map - Full Width at Bottom */}

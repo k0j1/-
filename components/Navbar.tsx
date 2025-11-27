@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {['Concept', 'Menu', 'Gallery', 'Info', 'Instagram'].map((item) => (
+              {['Concept', 'Menu', 'Gallery', 'Reserve', 'Info', 'Instagram'].map((item) => (
                 <button
                   key={item}
                   onClick={() => handleNavClick(item.toLowerCase())}
@@ -62,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrollToSection }) => {
       {isOpen && (
         <div className="md:hidden bg-white border-b border-stone-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-             {['Concept', 'Menu', 'Gallery', 'Info', 'Instagram'].map((item) => (
+             {['Concept', 'Menu', 'Gallery', 'Reserve', 'Info', 'Instagram'].map((item) => (
                 <button
                   key={item}
                   onClick={() => handleNavClick(item.toLowerCase())}

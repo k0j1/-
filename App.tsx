@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Concept from './components/Concept';
 import MenuSection from './components/MenuSection';
 import Gallery from './components/Gallery';
+import ReserveSection from './components/ReserveSection';
 import InfoSection from './components/InfoSection';
 import InstagramFeed from './components/InstagramFeed';
 import AIConcierge from './components/AIConcierge';
@@ -26,6 +27,7 @@ const App: React.FC = () => {
         <Concept />
         <MenuSection />
         <Gallery />
+        <ReserveSection />
         <InstagramFeed />
         <InfoSection />
       </main>
