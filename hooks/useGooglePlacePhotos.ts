@@ -28,7 +28,7 @@ export const useGooglePlacePhotos = () => {
 
     if (!GOOGLE_MAPS_API_KEY) {
       // APIキーがない場合は警告を出さずに静かに終了（デフォルト画像を使用するため）
-      console.debug("Google Maps API Key is missing. Using default images.");
+      console.warn("Google Maps API Key is missing. If running on GitHub, ensure 'VITE_GOOGLE_MAPS_API_KEY' is set in Repository Secrets and a new build has been triggered.");
       setLoading(false);
       return;
     }

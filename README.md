@@ -61,14 +61,22 @@ git push origin main
 
 ## トラブルシューティング
 
-### Google Maps API エラー: ApiNotActivatedMapError
+### Q. 「Google Maps API Key is missing」と表示される
+GitHub上でこのエラーが出る場合、Secretsを設定しただけではまだ反映されていません。
+Viteはビルド時に環境変数を埋め込むため、**Secrets設定後に必ず再デプロイ（何らかのコミットをプッシュ）** する必要があります。
+
+**対処法:**
+1. Secretsに `VITE_GOOGLE_MAPS_API_KEY` が正しく保存されているか確認する。
+2. 適当な修正（READMEの空白変更など）を行い、コミット＆プッシュしてGitHub Actionsを再実行させる。
+
+### Q. Google Maps API エラー: ApiNotActivatedMapError
 ブラウザのコンソールに `ApiNotActivatedMapError` が表示される場合、APIキーに紐づくGoogle Cloudプロジェクトで **「Maps JavaScript API」** が有効になっていません。
 
 **解決手順:**
 1. [Google Cloud Console](https://console.cloud.google.com/) にアクセスします。
 2. 「APIとサービス」 > 「ライブラリ」を選択します。
 3. **「Maps JavaScript API」** を検索し、「有効にする」をクリックします。
-4. 同様に **「Places API (New)」** または **「Places API」** も有効にしてください。
+4. 同様に **「Places API」** も有効にしてください。
 
 ## 構成技術
 - **Framework:** React + Vite
