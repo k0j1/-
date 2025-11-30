@@ -49,6 +49,10 @@ export const useGooglePlacePhotos = () => {
           });
         }
 
+        // ライブラリが利用可能になるまで待機（ポーリング）
+        // スクリプトロード完了後でも、importLibraryが即座に生えない場合があるため
+        await waitForMapLibrary();
+
         await fetchPhotos();
 
       } catch (err) {
@@ -56,6 +60,18 @@ export const useGooglePlacePhotos = () => {
         setError("Failed to initialize Google Maps");
         setLoading(false);
       }
+    };
+
+    // importLibraryの待機関数
+    const waitForMapLibrary = async () => {
+        const maxAttempts = 50; // 100ms * 50 = 5秒待機
+        for (let i = 0; i < maxAttempts; i++) {
+            if (window.google?.maps?.importLibrary) {
+                return;
+            }
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        throw new Error("Timeout waiting for Google Maps importLibrary");
     };
 
     // 写真取得ロジック (Modern Places API)
